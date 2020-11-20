@@ -1,0 +1,24 @@
+.dog-image {
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.dog-info {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 1px solid rgb(186, 190, 186);
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.update-links {
+    word-spacing: 2rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+.edit-link, .delete-link {
+    width: 8rem;
+}

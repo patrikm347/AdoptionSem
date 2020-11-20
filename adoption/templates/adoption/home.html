@@ -1,0 +1,25 @@
+{% extends 'adoption/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'adoption/home.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="text-center">
+        <a class="btn btn-primary mb-2" href="{% url 'adoption:create' %}">Create new dog</a>
+        <h4>Currently there are {{ dogs|length }} dogs to adopt</h4>
+    </div>
+    <div class="row justify-content-center mt-4">
+        {% for dog in dogs %}
+            <div class="col-md-5 mb-4">
+                <div class="dog-data">
+                    <img src="{{ dog.image.url }}" class="dog-image"></img>
+                    <div class="dog-card">
+                        <a href="{% url 'adoption:detail' dog.id %}" class="stretched-link dog-link">{{ dog.name }}, {{ dog.age }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

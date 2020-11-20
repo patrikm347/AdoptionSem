@@ -1,0 +1,47 @@
+{% extends 'adoption/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'adoption/home.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="mb-4">Create new dog</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="breed">Breed: </label>
+                <select class="form-control mb-3" id="breed" name="breed">
+                    {% for breed in breeds %}
+                        <option value="{{ breed.breedType }}">{{ breed.breedType }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="name">Name: </label>
+                <input class="form-control mb-3" type="text" id="name" name="name" required>
+
+                <label for="description">Description: </label>
+                <textarea rows="10" cols="60" class="form-control mb-2" type="text" id="description" name="description" required></textarea>
+
+                <label for="age">Age: </label>
+                <input class="form-control mb-3" type="number" id="age" name="age" required>
+
+                <label for="weight">Weight (kg): </label>
+                <input class="form-control mb-3" type="number" id="weight" name="weight" required>
+
+                <label for="gender">Gender: </label>
+                <select class="form-control mb-3" id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label for="image">Image: </label>
+                <input class="form-control mb-3" type="file" id="image" name="image" required>
+            </div>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Create">
+        </form>
+        <br>
+    </div>
+{% endblock content %}

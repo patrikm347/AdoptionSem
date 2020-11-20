@@ -1,0 +1,24 @@
+{% extends 'adoption/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'adoption/detail.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="d-flex flex-column align-items-center">
+        <div class="update-links">
+            <a href="{% url 'adoption:update' dog.id %}" class="btn btn-primary edit-link">Edit</a>
+            <a href="{% url 'adoption:delete' dog.id %}" class="btn btn-danger delete-link">Delete</a>
+        </div>
+        <img src="{{ dog.image.url }}" class="dog-image">
+        <div class="dog-info">
+            <h4>Name: {{ dog.name }}</h4>
+            <h4>Age: {{ dog.age }} years</h4>
+            <h4>Weight: {{ dog.weight }} kg</h4>
+            <h4>Breed: {{ dog.breed }}</h4>
+            <h4>Description: </h4>
+            <p>{{ dog.description }}</p>
+        </div>
+    </div>
+{% endblock content %}
