@@ -63,7 +63,7 @@ def create(request):
         )
         dog.save()
 
-        return HttpResponseRedirect(reverse('adoption:home'))
+        return HttpResponseRedirect(reverse('adoption:detail', kwargs={'dog_id': dog.id}))
 
     breeds = Breed.objects.all()
     context = {

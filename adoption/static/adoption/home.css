@@ -1,7 +1,7 @@
 .dog-image {
     margin: 0 auto;
     width: 100%;
-    max-width: 30rem;
+    /*max-width: 30rem;*/
     height: auto;
     border-radius: 1rem 1rem 0 0;
 }
@@ -12,6 +12,7 @@
     background-color: white;
     padding: .5rem 1rem;
     text-align: center;
+    /*max-width: 30rem;*/
 }
 
 .dog-link {
